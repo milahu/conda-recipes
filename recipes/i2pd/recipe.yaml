@@ -1,0 +1,92 @@
+# based on
+# https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/i2/i2pd/package.nix
+
+context:
+  version: "2.60.0"
+  sha256: "ef32100c5ffdf4d23dfe78a2f6c08f65574fd79f992eb2ac8cfea0b6440deabd"
+  # TODO unpin boost. this should work:
+  # boost_version: ""
+  # pin boost 1.82
+  # fix: i2pd: error while loading shared libraries: libboost_program_options.so.1.82.0: cannot open shared object file: No such file or directory
+  # i2pd requires boost 1.85
+  # $ ldd micromamba/bin/i2pd | grep libboost_program_options.so
+  #         libboost_program_options.so.1.82.0 => not found
+  # $ ls micromamba/lib/libboost_program_options.so.*
+  # micromamba/lib/libboost_program_options.so.1.85.0
+  boost_version: " ==1.82"
+  # FIXME expected scalar or list but got non-scalar/non-list
+  # prefix_var: {"if":"win","then":"%PREFIX%","else":"$PREFIX"}
+  # src_dir_var: {"if":"win","then":"%SRC_DIR%","else":"$SRC_DIR"}
+  prefix_var_expr: '{"if":"win","then":"%PREFIX%","else":"$PREFIX"}'
+  src_dir_var_expr: '{"if":"win","then":"%SRC_DIR%","else":"$SRC_DIR"}'
+  cmake_flags: "-DCMAKE_BUILD_TYPE=Release -DUPNPC_BUILD_SHARED=yes -DUPNPC_BUILD_STATIC=no"
+
+package:
+  name: i2pd
+  version: ${{ version }}
+
+source:
+  # url: https://github.com/PurpleI2P/i2pd/archive/refs/tags/${{ version }}.tar.gz
+  # sha256: ${{ sha256 }}
+  # https://github.com/PurpleI2P/i2pd/pull/2384
+  url: https://github.com/PurpleI2P/i2pd/archive/c9966f7b0f4fe37add8c84bb91fa0bc96353d062.tar.gz
+  sha256: 776f277861a21132a011afe6dc7cbc0e92420fff4811ce4cdf31ccf7684b3f70
+
+build:
+  number: 0
+  script:
+    - {"if":"win","then":"echo on","else":"set -x"} # trace commands
+    - if: win
+      then: cmake %SRC_DIR% -DCMAKE_INSTALL_PREFIX=%PREFIX% ${{ cmake_flags }}
+      else: cmake $SRC_DIR -DCMAKE_INSTALL_PREFIX=$PREFIX ${{ cmake_flags }}
+    - cmake --build . --config Release
+    - cmake --install . --config Release
+    - if: linux
+      then: |
+        # on osx this fails with: install: illegal option -- -
+        install --mode=444 -D $SRC_DIR/contrib/i2pd.service $PREFIX/etc/systemd/system/i2pd.service
+        install --mode=444 -D $SRC_DIR/debian/i2pd.1 $PREFIX/share/man/man1/i2pd.1
+        gzip $PREFIX/share/man/man1/i2pd.1
+
+requirements:
+  build:
+    - make
+    - cmake
+    - ${{ compiler('cxx') }}
+    # FIXME
+    # Unsatisfiable dependencies for platform linux-64: {MatchSpec("c_linux-64")}
+    # Encountered problems while solving:
+    #   - nothing provides requested c_linux-64
+    # The following package could not be installed
+    # └─ c_linux-64 does not exist (perhaps a typo or a missing channel).
+    - ${{ stdlib("c") }}
+
+  host:
+    # - boost-cpp${{ boost_version }}
+    # - boost${{ boost_version }}
+    - libboost-devel
+    - openssl
+    - zlib
+    - miniupnpc
+
+  run:
+    # - boost-cpp${{ boost_version }}
+    # - boost${{ boost_version }}
+    - libboost-devel
+    - openssl
+    - zlib
+    - miniupnpc
+
+tests:
+  - script:
+    - i2pd --version
+
+about:
+  homepage: https://github.com/PurpleI2P/i2pd
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: "C++ implementation of I2P router"
+
+extra:
+  recipe-maintainers:
+    - nobody

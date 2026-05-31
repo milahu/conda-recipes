@@ -1,0 +1,804 @@
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config file: "recipes/rqbit/variant_config.yaml"
+ │ Found 1 variants
+ │ 
+ │ Build variant: rqbit-9.0.0_beta.2-h00ff4ad_0
+ │ 
+ │ ╭─────────────────┬────────────╮
+ │ │ Variant         ┆ Version    │
+ │ ╞═════════════════╪════════════╡
+ │ │ c_compiler      ┆ "gcc"      │
+ │ │ c_stdlib        ┆ "sysroot"  │
+ │ │ target_platform ┆ "linux-64" │
+ │ ╰─────────────────┴────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+
+ ╭─ Running build for recipe: rqbit-9.0.0_beta.2-h00ff4ad_0
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from url: https://github.com/ikatson/rqbit/archive/refs/tags/v9.0.0-beta.2.tar.gz
+ │ │ Found filename from Content-Disposition: rqbit-9.0.0-beta.2.tar.gz
+ │ │ Validated SHA256 values of the downloaded file!
+ │ │ Found valid source cache file.
+ │ │ Using extracted directory from cache: /home/user/src/milahu/conda-recipes/output/src_cache/rqbit-9_0_0-beta_2_45a2d4b5
+ │ │ Copying source from url: /home/user/src/milahu/conda-recipes/output/src_cache/rqbit-9_0_0-beta_2_45a2d4b5 to /home/user/src/milahu/conda-recipes/output
+ │ │ /bld/rattler-build_rqbit_1780249379/work
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Resolving environments
+ │ │ 
+ │ │ Resolving build environment:
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.18.25=0, __glibc=2.42=0, __cuda=13.2=0, __archspec=1=zen3]
+ │ │   Channels: 
+ │ │    - file:///home/user/src/milahu/conda-recipes/output/
+ │ │    - conda-forge
+ │ │   Specs:
+ │ │    - sysroot_linux-64
+ │ │    - gcc_linux-64
+ │ │    - rust_linux-64
+ │ │    - cargo-bundle-licenses
+ │ │    - cargo-auditable
+ │ │    - openssl
+ │ │    - zlib
+ │ │ 
+ │ │ ╭───────────────────────────────────┬───────────┬──────────────────────┬─────────────┬─────────────╮
+ │ │ │ Package                           ┆ Version   ┆ Build                ┆ Channel     ┆        Size │
+ │ │ ╞═══════════════════════════════════╪═══════════╪══════════════════════╪═════════════╪═════════════╡
+ │ │ │ _openmp_mutex                     ┆ 4.5       ┆ 20_gnu               ┆ conda-forge ┆   28.27 KiB │
+ │ │ │ binutils_impl_linux-64            ┆ 2.45.1    ┆ default_hfdba357_102 ┆ conda-forge ┆    3.49 MiB │
+ │ │ │ binutils_linux-64                 ┆ 2.45.1    ┆ default_h4852527_102 ┆ conda-forge ┆   35.45 KiB │
+ │ │ │ bzip2                             ┆ 1.0.8     ┆ hda65f42_9           ┆ conda-forge ┆  254.08 KiB │
+ │ │ │ ca-certificates                   ┆ 2026.5.20 ┆ hbd8a1cb_0           ┆ conda-forge ┆  126.82 KiB │
+ │ │ │ cargo-auditable                   ┆ 0.7.5     ┆ hb17b654_0           ┆ conda-forge ┆  442.16 KiB │
+ │ │ │ cargo-bundle-licenses             ┆ 4.2.0     ┆ he179b06_0           ┆ conda-forge ┆    1.43 MiB │
+ │ │ │ gcc_impl_linux-64                 ┆ 15.2.0    ┆ ha6850e4_19          ┆ conda-forge ┆   77.29 MiB │
+ │ │ │ gcc_linux-64                      ┆ 15.2.0    ┆ h7be306e_25          ┆ conda-forge ┆   28.51 KiB │
+ │ │ │ kernel-headers_linux-64           ┆ 6.12.0    ┆ he073ed8_6           ┆ conda-forge ┆    1.47 MiB │
+ │ │ │ ld_impl_linux-64                  ┆ 2.45.1    ┆ default_hbd61a6d_102 ┆ conda-forge ┆  710.94 KiB │
+ │ │ │ libgcc                            ┆ 15.2.0    ┆ he0feb66_19          ┆ conda-forge ┆ 1016.68 KiB │
+ │ │ │ libgcc-devel_linux-64             ┆ 15.2.0    ┆ hcc6f6b0_119         ┆ conda-forge ┆    2.95 MiB │
+ │ │ │ libgit2                           ┆ 1.9.4     ┆ hc20babb_0           ┆ conda-forge ┆ 1014.04 KiB │
+ │ │ │ libgomp                           ┆ 15.2.0    ┆ he0feb66_19          ┆ conda-forge ┆  589.67 KiB │
+ │ │ │ libsanitizer                      ┆ 15.2.0    ┆ h90f66d4_19          ┆ conda-forge ┆    7.56 MiB │
+ │ │ │ libssh2                           ┆ 1.11.1    ┆ hcf80075_0           ┆ conda-forge ┆  297.65 KiB │
+ │ │ │ libstdcxx                         ┆ 15.2.0    ┆ h934c35e_19          ┆ conda-forge ┆    5.58 MiB │
+ │ │ │ libstdcxx-devel_linux-64          ┆ 15.2.0    ┆ hd446a21_119         ┆ conda-forge ┆   19.80 MiB │
+ │ │ │ libzlib                           ┆ 1.3.2     ┆ h25fd6f3_2           ┆ conda-forge ┆   62.14 KiB │
+ │ │ │ openssl                           ┆ 3.6.2     ┆ h35e630c_0           ┆ conda-forge ┆    3.02 MiB │
+ │ │ │ pcre2                             ┆ 10.47     ┆ haa7fec5_0           ┆ conda-forge ┆    1.17 MiB │
+ │ │ │ rust                              ┆ 1.95.0    ┆ h53717f1_1           ┆ conda-forge ┆  174.43 MiB │
+ │ │ │ rust-std-x86_64-unknown-linux-gnu ┆ 1.95.0    ┆ h2c6d0dc_1           ┆ conda-forge ┆   34.73 MiB │
+ │ │ │ rust_linux-64                     ┆ 1.95.0    ┆ hb4ea61c_2           ┆ conda-forge ┆   11.49 KiB │
+ │ │ │ sysroot_linux-64                  ┆ 2.39      ┆ hc4b9eeb_6           ┆ conda-forge ┆   40.10 MiB │
+ │ │ │ tzdata                            ┆ 2025c     ┆ hc9c84f9_1           ┆ conda-forge ┆  116.34 KiB │
+ │ │ │ zlib                              ┆ 1.3.2     ┆ h25fd6f3_2           ┆ conda-forge ┆   93.68 KiB │
+ │ │ │ zstd                              ┆ 1.5.7     ┆ hb78ec9c_6           ┆ conda-forge ┆  587.28 KiB │
+ │ │ ╰───────────────────────────────────┴───────────┴──────────────────────┴─────────────┴─────────────╯
+ │ │ 
+ │ │ Resolving host environment:
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.18.25=0, __glibc=2.42=0, __cuda=13.2=0, __archspec=1=zen3]
+ │ │   Channels: 
+ │ │    - file:///home/user/src/milahu/conda-recipes/output/
+ │ │    - conda-forge
+ │ │   Specs:
+ │ │    - openssl
+ │ │    - zlib
+ │ │    - libgcc >=15
+ │ │    - __glibc >=2.39,<3.0.a0
+ │ │ 
+ │ │ ╭─────────────────┬───────────┬─────────────┬─────────────┬─────────────╮
+ │ │ │ Package         ┆ Version   ┆ Build       ┆ Channel     ┆        Size │
+ │ │ ╞═════════════════╪═══════════╪═════════════╪═════════════╪═════════════╡
+ │ │ │ _openmp_mutex   ┆ 4.5       ┆ 20_gnu      ┆ conda-forge ┆   28.27 KiB │
+ │ │ │ ca-certificates ┆ 2026.5.20 ┆ hbd8a1cb_0  ┆ conda-forge ┆  126.82 KiB │
+ │ │ │ libgcc          ┆ 15.2.0    ┆ he0feb66_19 ┆ conda-forge ┆ 1016.68 KiB │
+ │ │ │ libgomp         ┆ 15.2.0    ┆ he0feb66_19 ┆ conda-forge ┆  589.67 KiB │
+ │ │ │ libzlib         ┆ 1.3.2     ┆ h25fd6f3_2  ┆ conda-forge ┆   62.14 KiB │
+ │ │ │ openssl         ┆ 3.6.2     ┆ h35e630c_0  ┆ conda-forge ┆    3.02 MiB │
+ │ │ │ zlib            ┆ 1.3.2     ┆ h25fd6f3_2  ┆ conda-forge ┆   93.68 KiB │
+ │ │ ╰─────────────────┴───────────┴─────────────┴─────────────┴─────────────╯
+ │ │ 
+ │ │ Finalized run dependencies (rqbit-9.0.0_beta.2-h00ff4ad_0):
+ │ │ ╭──────────────────┬──────────────────────────────────────────────────╮
+ │ │ │ Name             ┆ Spec                                             │
+ │ │ ╞══════════════════╪══════════════════════════════════════════════════╡
+ │ │ │ Run dependencies ┆                                                  │
+ │ │ │ __glibc          ┆ >=2.39,<3.0.a0 (RE of [build: sysroot_linux-64]) │
+ │ │ │ libgcc           ┆ >=15 (RE of [build: gcc_linux-64])               │
+ │ │ │ libzlib          ┆ >=1.3.2,<2.0a0 (RE of [host: zlib])              │
+ │ │ │ openssl          ┆ *                                                │
+ │ │ │                  ┆ >=3.6.2,<4.0a0 (RE of [host: openssl])           │
+ │ │ │ zlib             ┆ *                                                │
+ │ │ │                  ┆                                                  │
+ │ │ │ Run constraints  ┆                                                  │
+ │ │ │ __glibc          ┆ >=2.17 (RE of [build: rust_linux-64])            │
+ │ │ ╰──────────────────┴──────────────────────────────────────────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │ 
+ │ Installing build environment
+ │ ✔ Successfully updated the build environment
+ │ 
+ │ Installing host environment
+ │ ✔ Successfully updated the host environment
+ │
+ │ ╭─ Running build script
+ │ │ INFO: activate-binutils_linux-64.sh made the following environmental changes:
+ │ │ +ADDR2LINE=x86_64-conda-linux-gnu-addr2line
+ │ │ -AR=ar
+ │ │ +AR=x86_64-conda-linux-gnu-ar
+ │ │ -AS=as
+ │ │ +AS=x86_64-conda-linux-gnu-as
+ │ │ +CXXFILT=x86_64-conda-linux-gnu-c++filt
+ │ │ +ELFEDIT=x86_64-conda-linux-gnu-elfedit
+ │ │ +GPROF=x86_64-conda-linux-gnu-gprof
+ │ │ -LD=ld
+ │ │ +LD=x86_64-conda-linux-gnu-ld
+ │ │ -NM=nm
+ │ │ +NM=x86_64-conda-linux-gnu-nm
+ │ │ -OBJCOPY=objcopy
+ │ │ +OBJCOPY=x86_64-conda-linux-gnu-objcopy
+ │ │ -OBJDUMP=objdump
+ │ │ +OBJDUMP=x86_64-conda-linux-gnu-objdump
+ │ │ -RANLIB=ranlib
+ │ │ +RANLIB=x86_64-conda-linux-gnu-ranlib
+ │ │ -READELF=readelf
+ │ │ +READELF=x86_64-conda-linux-gnu-readelf
+ │ │ -SIZE=size
+ │ │ +SIZE=x86_64-conda-linux-gnu-size
+ │ │ -STRINGS=strings
+ │ │ +STRINGS=x86_64-conda-linux-gnu-strings
+ │ │ -STRIP=strip
+ │ │ +STRIP=x86_64-conda-linux-gnu-strip
+ │ │ INFO: activate-gcc_linux-64.sh made the following environmental changes:
+ │ │ +build_alias=x86_64-conda-linux-gnu
+ │ │ -BUILD=x86_64-conda_cos6-linux-gnu
+ │ │ +BUILD=x86_64-conda-linux-gnu
+ │ │ +CC_FOR_BUILD=x86_64-conda-linux-gnu-cc
+ │ │ -CC=gcc
+ │ │ +CC=x86_64-conda-linux-gnu-cc
+ │ │ +CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem $PREFIX/include -f
+ │ │ debug-prefix-map=$SRC_DIR=/usr/local/src/conda/rqbit-9.0.0_beta.2 -fdebug-prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +CMAKE_ARGS=-DCMAKE_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ar -DCMAKE_CXX_COMPILER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_C_CO
+ │ │ MPILER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ranlib -DCMAKE_CXX_COMPILER_RANLIB=$B
+ │ │ UILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_C_COMPILER_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_LINKER=$BUILD_P
+ │ │ REFIX/bin/x86_64-conda-linux-gnu-ld -DCMAKE_STRIP=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-strip -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_ROOT_PATH_MODE
+ │ │ _PROGRAM=NEVER -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY -DCMAKE_FIND_ROOT_PATH=$PREFIX;$BUILD_PREFIX/x86_64-co
+ │ │ nda-linux-gnu/sysroot -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_PROGRAM_PATH=$BUILD_PREFIX/bin;$PREFIX/bin
+ │ │ +CMAKE_PREFIX_PATH=$PREFIX:$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr
+ │ │ +CONDA_BUILD_CROSS_COMPILATION=
+ │ │ -CONDA_BUILD_CROSS_COMPILATION=0
+ │ │ +CONDA_BUILD_SYSROOT=$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot
+ │ │ +CONDA_TOOLCHAIN_BUILD=x86_64-conda-linux-gnu
+ │ │ +CONDA_TOOLCHAIN_HOST=x86_64-conda-linux-gnu
+ │ │ +CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem $PREFIX/include
+ │ │ +CPP_FOR_BUILD=x86_64-conda-linux-gnu-cpp
+ │ │ +CPP=x86_64-conda-linux-gnu-cpp
+ │ │ +DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunc
+ │ │ tion-sections -pipe -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/rqbit-9.0.0_beta.2 -fdebug-prefix-map=$PREFIX=/usr/local/
+ │ │ src/conda-prefix
+ │ │ +DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og -isystem $PREFIX/include
+ │ │ +GCC_AR=x86_64-conda-linux-gnu-gcc-ar
+ │ │ +GCC_NM=x86_64-conda-linux-gnu-gcc-nm
+ │ │ +GCC_RANLIB=x86_64-conda-linux-gnu-gcc-ranlib
+ │ │ +GCC=x86_64-conda-linux-gnu-gcc
+ │ │ +host_alias=x86_64-conda-linux-gnu
+ │ │ +HOST=x86_64-conda-linux-gnu
+ │ │ +LDFLAGS_LD=-O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath $PREFIX/lib -rpath-link $PRE
+ │ │ FIX/lib -L$PREFIX/lib
+ │ │ +LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-r
+ │ │ path,$PREFIX/lib -Wl,-rpath-link,$PREFIX/lib -L$PREFIX/lib
+ │ │ +MESON_ARGS=-Dbuildtype=release --prefix=$PREFIX -Dlibdir=lib
+ │ │ + which rustc
+ │ │ $BUILD_PREFIX/bin/rustc
+ │ │ + rustc --version
+ │ │ rustc 1.95.0 (59807616e 2026-04-14)
+ │ │ + $BUILD_PREFIX/bin/rustc --version
+ │ │ rustc 1.95.0 (59807616e 2026-04-14)
+ │ │ + ldd $BUILD_PREFIX/bin/rustc
+ │ │ + grep libz
+ │ │ 	libz.so.1 => $BUILD_PREFIX/bin/../lib/../lib/../lib/libz.so.1 (0x00007c4801abd000)
+ │ │ + ldd $BUILD_PREFIX/bin/../lib/../lib/../lib/libz.so.1
+ │ │ 	linux-vdso.so.1 (0x00007fa626211000)
+ │ │ 	libc.so.6 => /lib/libc.so.6 (0x00007fa625e00000)
+ │ │ 	/nix/store/fjkx1l5cnskzrqacf08z7i8z17256w0j-glibc-2.42-61/lib64/ld-linux-x86-64.so.2 (0x00007fa626213000)
+ │ │ + set +x
+ │ │ $BUILD_PREFIX/lib/librustc_driver-6108105cd7e839cf.so
+ │ │ 	libz.so.1 => $BUILD_PREFIX/lib/../lib/../lib/libz.so.1 (0x000075d82ec89000)
+ │ │ $BUILD_PREFIX/lib/libssh2.so
+ │ │ 	libz.so.1 => $BUILD_PREFIX/lib/./libz.so.1 (0x000073f144b80000)
+ │ │ $BUILD_PREFIX/lib/libgit2.so
+ │ │ 	libz.so.1 => $BUILD_PREFIX/lib/libz.so.1 (0x000070d0ab091000)
+ │ │ + echo PATH=$BUILD_PREFIX/bin:$PREFIX/bin:/home/user/src/milahu/conda-recipes/.mamba/envs/conda-build/bin:/run/wrappers/bin:/usr/bin:/usr/sbin:/condabi
+ │ │ n:/run/wrappers/bin:/usr/bin:/usr/sbin:/nix/store/4bwbk4an4bx7cb8xwffghvjjyfyl7m2i-bash-interactive-5.3p9/bin:/nix/store/66lksljlljdd5ppgvfk8g89y8xgqcx
+ │ │ d7-patchelf-0.15.2/bin:/nix/store/jjxngswsb214vb58qx485jhmilf0kxxy-coreutils-9.10/bin:/nix/store/vhsirn9m1ifmnw5g1qczzhvqkx6lw1if-findutils-4.10.0/bin:
+ │ │ /nix/store/hx084k7pgz4n0vgkvil9gbcnl8y6p1xf-diffutils-3.12/bin:/nix/store/af4a8i43kc2ss4rnmf0swkk2mprsw6xq-gnused-4.9/bin:/nix/store/wf7lr2hf43546jc5kw
+ │ │ qh3dbxnpcnw1mn-gnugrep-3.12/bin:/nix/store/lakv43kv98sl6h0ba6wnyg513mcq61vl-gawk-5.4.0/bin:/nix/store/rnvb7bvp53v2dw7pcwh9xb89x5z4rjib-gnutar-1.35/bin:
+ │ │ /nix/store/9lhr1c3l9qzv8pzp3idmii1nwvxxjys3-gzip-1.14/bin:/nix/store/zj6r42syyswkhrr174bzppj3n7xhq936-bzip2-1.0.8-bin/bin:/nix/store/yvrwcs1a45rj8142n0
+ │ │ l2w9q9s6akamjr-gnumake-4.4.1/bin:/nix/store/i27rhb3nr65rkrwz36bchkwmav6ggsmn-bash-5.3p9/bin:/nix/store/zj7mxwji29zvj9vl70iip7gw4h6ljfam-patch-2.8/bin:/
+ │ │ nix/store/2nm5c858fh52s6mhcffm07s3biaxys44-xz-5.8.3-bin/bin:/nix/store/iscmg3ivhx7z67dz14lrg7p77gnsa4dw-file-5.45/bin:/home/user/.local/share/pnpm:/run
+ │ │ /wrappers/bin:/home/user/.nix-profile/bin:/nix/profile/bin:/home/user/.local/state/nix/profile/bin:/etc/profiles/per-user/user/bin:/nix/var/nix/profile
+ │ │ s/default/bin:/run/current-system/sw/bin:/home/user/bin:/home/user/.lmstudio/bin:/home/user/bin:/home/user/.lmstudio/bin
+ │ │ PATH=$BUILD_PREFIX/bin:$PREFIX/bin:/home/user/src/milahu/conda-recipes/.mamba/envs/conda-build/bin:/run/wrappers/bin:/usr/bin:/usr/sbin:/condabin:/run/
+ │ │ wrappers/bin:/usr/bin:/usr/sbin:/nix/store/4bwbk4an4bx7cb8xwffghvjjyfyl7m2i-bash-interactive-5.3p9/bin:/nix/store/66lksljlljdd5ppgvfk8g89y8xgqcxd7-patc
+ │ │ helf-0.15.2/bin:/nix/store/jjxngswsb214vb58qx485jhmilf0kxxy-coreutils-9.10/bin:/nix/store/vhsirn9m1ifmnw5g1qczzhvqkx6lw1if-findutils-4.10.0/bin:/nix/st
+ │ │ ore/hx084k7pgz4n0vgkvil9gbcnl8y6p1xf-diffutils-3.12/bin:/nix/store/af4a8i43kc2ss4rnmf0swkk2mprsw6xq-gnused-4.9/bin:/nix/store/wf7lr2hf43546jc5kwqh3dbxn
+ │ │ pcnw1mn-gnugrep-3.12/bin:/nix/store/lakv43kv98sl6h0ba6wnyg513mcq61vl-gawk-5.4.0/bin:/nix/store/rnvb7bvp53v2dw7pcwh9xb89x5z4rjib-gnutar-1.35/bin:/nix/st
+ │ │ ore/9lhr1c3l9qzv8pzp3idmii1nwvxxjys3-gzip-1.14/bin:/nix/store/zj6r42syyswkhrr174bzppj3n7xhq936-bzip2-1.0.8-bin/bin:/nix/store/yvrwcs1a45rj8142n0l2w9q9s
+ │ │ 6akamjr-gnumake-4.4.1/bin:/nix/store/i27rhb3nr65rkrwz36bchkwmav6ggsmn-bash-5.3p9/bin:/nix/store/zj7mxwji29zvj9vl70iip7gw4h6ljfam-patch-2.8/bin:/nix/sto
+ │ │ re/2nm5c858fh52s6mhcffm07s3biaxys44-xz-5.8.3-bin/bin:/nix/store/iscmg3ivhx7z67dz14lrg7p77gnsa4dw-file-5.45/bin:/home/user/.local/share/pnpm:/run/wrappe
+ │ │ rs/bin:/home/user/.nix-profile/bin:/nix/profile/bin:/home/user/.local/state/nix/profile/bin:/etc/profiles/per-user/user/bin:/nix/var/nix/profiles/defau
+ │ │ lt/bin:/run/current-system/sw/bin:/home/user/bin:/home/user/.lmstudio/bin:/home/user/bin:/home/user/.lmstudio/bin
+ │ │ + echo LD_LIBRARY_PATH=/etc/sane-libs
+ │ │ LD_LIBRARY_PATH=/etc/sane-libs
+ │ │ + echo RUSTC=$BUILD_PREFIX/bin/rustc
+ │ │ RUSTC=$BUILD_PREFIX/bin/rustc
+ │ │ + echo CARGO_HOME=$BUILD_PREFIX/.cargo
+ │ │ CARGO_HOME=$BUILD_PREFIX/.cargo
+ │ │ + echo rustc: rpath via readelf
+ │ │ rustc: rpath via readelf
+ │ │ + readelf -d $BUILD_PREFIX/bin/rustc
+ │ │ + grep -E 'RPATH|RUNPATH'
+ │ │  0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN/../lib]
+ │ │ + echo rustc: rpath via patchelf
+ │ │ rustc: rpath via patchelf
+ │ │ + patchelf --print-rpath $BUILD_PREFIX/bin/rustc
+ │ │ $ORIGIN/../lib
+ │ │ + echo rust_lib_path=$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu/lib
+ │ │ + sed 's|/|___|g'
+ │ │ rust_lib_path=___home___user___src___milahu___conda-recipes___output___bld___rattler-build_rqbit_1780249379___build_env___lib___rustlib___x86_64-unknow
+ │ │ n-linux-gnu___lib
+ │ │ + echo main_lib_path=$BUILD_PREFIX/lib
+ │ │ + sed 's|/|___|g'
+ │ │ main_lib_path=___home___user___src___milahu___conda-recipes___output___bld___rattler-build_rqbit_1780249379___build_env___lib
+ │ │ + cargo auditable install --locked --no-track --bins --root $PREFIX --path crates/rqbit -vv --jobs 1
+ │ │   Installing rqbit v9.0.0-beta.2 ($SRC_DIR/crates/rqbit)
+ │ │     Updating crates.io index
+ │ │  Downloading crates ...
+ │ │   Downloaded anstyle-query v1.1.5
+ │ │   Downloaded adler2 v2.0.1
+ │ │   Downloaded anstream v0.6.21
+ │ │   Downloaded futures-core v0.3.31
+ │ │   Downloaded foreign-types v0.3.2
+ │ │   Downloaded crypto-hash v0.3.4
+ │ │   Downloaded hashlink v0.10.0
+ │ │   Downloaded cfg_aliases v0.2.1
+ │ │   Downloaded foldhash v0.1.5
+ │ │   Downloaded dyn-clone v1.0.20
+ │ │   Downloaded atoi v2.0.0
+ │ │   Downloaded hex v0.3.2
+ │ │   Downloaded foreign-types-shared v0.1.1
+ │ │   Downloaded cfg-if v1.0.4
+ │ │   Downloaded crossbeam-queue v0.3.12
+ │ │   Downloaded gethostname v1.1.0
+ │ │   Downloaded futures-task v0.3.31
+ │ │   Downloaded displaydoc v0.2.5
+ │ │   Downloaded fastrand v2.3.0
+ │ │   Downloaded errno v0.3.14
+ │ │   Downloaded equivalent v1.0.2
+ │ │   Downloaded crypto-common v0.1.7
+ │ │   Downloaded darling_macro v0.21.3
+ │ │   Downloaded compression-core v0.4.31
+ │ │   Downloaded crc v3.4.0
+ │ │   Downloaded hex v0.4.3
+ │ │   Downloaded heck v0.5.0
+ │ │   Downloaded dontfrag v1.0.1
+ │ │   Downloaded form_urlencoded v1.2.2
+ │ │   Downloaded cpufeatures v0.2.17
+ │ │   Downloaded futures-macro v0.3.31
+ │ │   Downloaded clap_lex v0.7.7
+ │ │   Downloaded futures-sink v0.3.31
+ │ │   Downloaded generic-array v0.14.7
+ │ │   Downloaded axum-core v0.5.6
+ │ │   Downloaded dotenvy v0.15.7
+ │ │   Downloaded foldhash v0.2.0
+ │ │   Downloaded ref-cast v1.0.25
+ │ │   Downloaded futures-executor v0.3.31
+ │ │   Downloaded async-trait v0.1.89
+ │ │   Downloaded directories v6.0.0
+ │ │   Downloaded either v1.15.0
+ │ │   Downloaded futures-channel v0.3.31
+ │ │   Downloaded futures-timer v3.0.3
+ │ │   Downloaded dashmap v6.1.0
+ │ │   Downloaded ref-cast-impl v1.0.25
+ │ │   Downloaded num v0.2.1
+ │ │   Downloaded find-msvc-tools v0.1.8
+ │ │   Downloaded darling v0.21.3
+ │ │   Downloaded generic-array v0.12.4
+ │ │   Downloaded rand_core v0.6.4
+ │ │   Downloaded rustc-hash v2.1.1
+ │ │   Downloaded same-file v1.0.6
+ │ │   Downloaded rand_chacha v0.9.0
+ │ │   Downloaded clap_derive v4.5.49
+ │ │   Downloaded crc32fast v1.5.0
+ │ │   Downloaded getrandom v0.2.17
+ │ │   Downloaded concurrent-queue v2.5.0
+ │ │   Downloaded httpdate v1.0.3
+ │ │   Downloaded event-listener v5.4.1
+ │ │   Downloaded scopeguard v1.2.0
+ │ │   Downloaded futures v0.3.31
+ │ │   Downloaded clap v4.5.54
+ │ │   Downloaded base64 v0.22.1
+ │ │   Downloaded const_panic v0.2.15
+ │ │   Downloaded home v0.5.12
+ │ │   Downloaded rand_chacha v0.3.1
+ │ │   Downloaded crossbeam-utils v0.8.21
+ │ │   Downloaded byteorder v1.5.0
+ │ │   Downloaded bitflags v2.10.0
+ │ │   Downloaded anyhow v1.0.100
+ │ │   Downloaded itoa v1.0.17
+ │ │   Downloaded digest v0.10.7
+ │ │   Downloaded autocfg v1.5.0
+ │ │   Downloaded arrayvec v0.7.6
+ │ │   Downloaded deranged v0.5.5
+ │ │   Downloaded block-buffer v0.10.4
+ │ │   Downloaded assert_cfg v0.1.0
+ │ │   Downloaded funty v2.0.0
+ │ │   Downloaded fnv v1.0.7
+ │ │   Downloaded async-stream v0.3.6
+ │ │   Downloaded async-stream-impl v0.3.6
+ │ │   Downloaded colorchoice v1.0.4
+ │ │   Downloaded data-encoding v2.10.0
+ │ │   Downloaded compression-codecs v0.4.36
+ │ │   Downloaded serde_urlencoded v0.7.1
+ │ │   Downloaded rustversion v1.0.22
+ │ │   Downloaded rlimit v0.10.2
+ │ │   Downloaded openssl-probe v0.1.6
+ │ │   Downloaded parse_duration v2.1.1
+ │ │   Downloaded clap_complete v4.5.65
+ │ │   Downloaded size_format v1.0.2
+ │ │   Downloaded getrandom v0.3.4
+ │ │   Downloaded percent-encoding v2.3.2
+ │ │   Downloaded crossbeam-epoch v0.9.18
+ │ │   Downloaded backon v1.6.0
+ │ │   Downloaded rand_core v0.9.5
+ │ │   Downloaded hyper-tls v0.6.0
+ │ │   Downloaded http-body v1.0.1
+ │ │   Downloaded rand_xoshiro v0.7.0
+ │ │   Downloaded bincode_derive v2.0.1
+ │ │   Downloaded atomic-waker v1.1.2
+ │ │   Downloaded darling_core v0.21.3
+ │ │   Downloaded cc v1.2.53
+ │ │   Downloaded serde_path_to_error v0.1.20
+ │ │   Downloaded potential_utf v0.1.4
+ │ │   Downloaded tap v1.0.1
+ │ │   Downloaded bytes v1.11.0
+ │ │   Downloaded axum-extra v0.10.3
+ │ │   Downloaded sync_wrapper v1.0.2
+ │ │   Downloaded subtle v2.6.1
+ │ │   Downloaded strsim v0.11.1
+ │ │   Downloaded stable_deref_trait v1.2.1
+ │ │   Downloaded time-core v0.1.7
+ │ │   Downloaded serde_with_macros v3.16.1
+ │ │   Downloaded ident_case v1.0.1
+ │ │   Downloaded tower-service v0.3.3
+ │ │   Downloaded serde_derive v1.0.228
+ │ │   Downloaded serde_core v1.0.228
+ │ │   Downloaded try-lock v0.2.5
+ │ │   Downloaded tracing-serde v0.2.0
+ │ │   Downloaded thiserror-impl v1.0.69
+ │ │   Downloaded unty v0.0.4
+ │ │   Downloaded tokio-native-tls v0.3.1
+ │ │   Downloaded utf8parse v0.2.2
+ │ │   Downloaded signal-hook v0.3.18
+ │ │   Downloaded socket2 v0.6.1
+ │ │   Downloaded utf8_iter v1.0.4
+ │ │   Downloaded want v0.3.1
+ │ │   Downloaded smallvec v1.15.1
+ │ │   Downloaded schemars v0.9.0
+ │ │   Downloaded zerofrom v0.1.6
+ │ │   Downloaded yoke-derive v0.8.1
+ │ │   Downloaded spinning_top v0.3.0
+ │ │   Downloaded rand v0.9.2
+ │ │   Downloaded num-iter v0.1.45
+ │ │   Downloaded sharded-slab v0.1.7
+ │ │   Downloaded urlencoding v2.1.3
+ │ │   Downloaded tokio-stream v0.1.18
+ │ │   Downloaded wyz v0.5.1
+ │ │   Downloaded whoami v1.6.1
+ │ │   Downloaded walkdir v2.5.0
+ │ │   Downloaded serde v1.0.228
+ │ │   Downloaded schemars v1.2.0
+ │ │   Downloaded zerofrom-derive v0.1.6
+ │ │   Downloaded raw-cpuid v11.6.0
+ │ │   Downloaded unicode-properties v0.1.4
+ │ │   Downloaded virtue v0.0.18
+ │ │   Downloaded tracing-attributes v0.1.31
+ │ │   Downloaded intervaltree v0.2.7
+ │ │   Downloaded idna_adapter v1.2.1
+ │ │   Downloaded tokio-socks v0.5.2
+ │ │   Downloaded rand v0.8.5
+ │ │   Downloaded zmij v1.0.16
+ │ │   Downloaded unicode-ident v1.0.22
+ │ │   Downloaded unicode-bidi v0.3.18
+ │ │   Downloaded zerovec-derive v0.11.2
+ │ │   Downloaded tokio-macros v2.6.0
+ │ │   Downloaded tinystr v0.8.2
+ │ │   Downloaded uuid v1.19.0
+ │ │   Downloaded aho-corasick v1.1.4
+ │ │   Downloaded time-macros v0.2.25
+ │ │   Downloaded parking v2.2.1
+ │ │   Downloaded openssl-macros v0.1.1
+ │ │   Downloaded thread_local v1.1.9
+ │ │   Downloaded thiserror-impl v2.0.18
+ │ │   Downloaded thiserror v2.0.18
+ │ │   Downloaded synstructure v0.13.2
+ │ │   Downloaded powerfmt v0.2.0
+ │ │   Downloaded thiserror v1.0.69
+ │ │   Downloaded typewit v1.14.2
+ │ │   Downloaded typenum v1.19.0
+ │ │   Downloaded sqlx-core v0.8.6
+ │ │   Downloaded axum v0.8.8
+ │ │   Downloaded url v2.5.8
+ │ │   Downloaded regex v1.12.2
+ │ │   Downloaded futures-util v0.3.31
+ │ │   Downloaded tower v0.5.3
+ │ │   Downloaded sqlx-postgres v0.8.6
+ │ │   Downloaded mime v0.3.17
+ │ │   Downloaded serde_json v1.0.149
+ │ │   Downloaded unicode-normalization v0.1.25
+ │ │   Downloaded tower-http v0.6.8
+ │ │   Downloaded tokio-util v0.7.18
+ │ │   Downloaded serde_with v3.16.1
+ │ │   Downloaded zerovec v0.11.5
+ │ │   Downloaded sqlx v0.8.6
+ │ │   Downloaded time v0.3.45
+ │ │   Downloaded chrono v0.4.43
+ │ │   Downloaded bitvec v1.0.1
+ │ │   Downloaded tracing-subscriber v0.3.22
+ │ │   Downloaded notify-types v2.0.0
+ │ │   Downloaded syn v2.0.114
+ │ │   Downloaded zerocopy v0.8.33
+ │ │   Downloaded bstr v1.12.1
+ │ │   Downloaded regex-syntax v0.8.8
+ │ │   Downloaded option-ext v0.2.0
+ │ │   Downloaded rustix v1.1.3
+ │ │   Downloaded matchers v0.2.0
+ │ │   Downloaded radium v0.7.0
+ │ │   Downloaded lazy_static v1.5.0
+ │ │   Downloaded clap_builder v4.5.54
+ │ │   Downloaded tracing v0.1.44
+ │ │   Downloaded tower-layer v0.3.3
+ │ │   Downloaded stringprep v0.1.5
+ │ │   Downloaded sqlx-macros-core v0.8.6
+ │ │   Downloaded ryu v1.0.22
+ │ │   Downloaded regex-automata v0.4.13
+ │ │   Downloaded nonzero_ext v0.3.0
+ │ │   Downloaded md-5 v0.10.6
+ │ │   Downloaded is_terminal_polyfill v1.70.2
+ │ │   Downloaded futures-intrusive v0.5.0
+ │ │   Downloaded flate2 v1.1.8
+ │ │   Downloaded inotify-sys v0.1.5
+ │ │   Downloaded bincode v2.0.1
+ │ │   Downloaded arc-swap v1.8.0
+ │ │   Downloaded sqlx-macros v0.8.6
+ │ │   Downloaded simd-adler32 v0.3.8
+ │ │   Downloaded signal-hook-registry v1.4.8
+ │ │   Downloaded shlex v1.3.0
+ │ │   Downloaded sha2 v0.10.9
+ │ │   Downloaded rustls-pki-types v1.14.0
+ │ │   Downloaded ringbuf v0.4.8
+ │ │   Downloaded chardetng v0.1.17
+ │ │   Downloaded pin-utils v0.1.0
+ │ │   Downloaded tokio v1.49.0
+ │ │   Downloaded sketches-ddsketch v0.3.0
+ │ │   Downloaded async-compression v0.4.37
+ │ │   Downloaded futures-io v0.3.31
+ │ │   Downloaded dirs-sys v0.5.0
+ │ │   Downloaded ahash v0.8.12
+ │ │   Downloaded anstyle-parse v0.2.7
+ │ │   Downloaded anstyle v1.0.13
+ │ │   Downloaded crc-catalog v2.4.0
+ │ │   Downloaded allocator-api2 v0.2.21
+ │ │   Downloaded num-conv v0.1.0
+ │ │   Downloaded encoding_rs v0.8.35
+ │ │   Downloaded tinyvec_macros v0.1.1
+ │ │   Downloaded version_check v0.9.5
+ │ │   Downloaded ppv-lite86 v0.2.21
+ │ │   Downloaded num-integer v0.1.46
+ │ │   Downloaded num-complex v0.2.4
+ │ │   Downloaded pkg-config v0.3.32
+ │ │   Downloaded network-interface v2.0.5
+ │ │   Downloaded leaky-bucket v1.1.2
+ │ │   Downloaded librqbit-dualstack-sockets v0.6.11
+ │ │   Downloaded num-rational v0.2.4
+ │ │   Downloaded lock_api v0.4.14
+ │ │   Downloaded mime_guess v2.0.5
+ │ │   Downloaded native-tls v0.2.14
+ │ │   Downloaded quote v1.0.43
+ │ │   Downloaded serde_html_form v0.2.8
+ │ │   Downloaded iana-time-zone v0.1.64
+ │ │   Downloaded httparse v1.10.1
+ │ │   Downloaded slab v0.4.11
+ │ │   Downloaded unicase v2.9.0
+ │ │   Downloaded web-time v1.1.0
+ │ │   Downloaded writeable v0.6.2
+ │ │   Downloaded notify v8.2.0
+ │ │   Downloaded hmac v0.12.1
+ │ │   Downloaded litemap v0.8.1
+ │ │   Downloaded zeroize v1.8.2
+ │ │   Downloaded portable-atomic-util v0.2.4
+ │ │   Downloaded inotify v0.11.0
+ │ │   Downloaded quanta v0.12.6
+ │ │   Downloaded memmap2 v0.9.9
+ │ │   Downloaded ipnet v2.11.0
+ │ │   Downloaded http-body-util v0.1.3
+ │ │   Downloaded parking_lot_core v0.9.12
+ │ │   Downloaded once_cell v1.21.3
+ │ │   Downloaded pin-project-lite v0.2.16
+ │ │   Downloaded matchit v0.8.4
+ │ │   Downloaded yoke v0.8.1
+ │ │   Downloaded num-traits v0.2.19
+ │ │   Downloaded metrics-util v0.20.1
+ │ │   Downloaded metrics-exporter-prometheus v0.17.2
+ │ │   Downloaded indexmap v1.9.3
+ │ │   Downloaded parking_lot v0.12.5
+ │ │   Downloaded log v0.4.29
+ │ │   Downloaded metrics v0.24.3
+ │ │   Downloaded icu_locale_core v2.1.1
+ │ │   Downloaded tinyvec v1.10.0
+ │ │   Downloaded icu_normalizer_data v2.1.1
+ │ │   Downloaded icu_provider v2.1.1
+ │ │   Downloaded proc-macro2 v1.0.105
+ │ │   Downloaded miniz_oxide v0.8.9
+ │ │   Downloaded openssl-sys v0.9.111
+ │ │   Downloaded icu_normalizer v2.1.1
+ │ │   Downloaded icu_properties v2.1.2
+ │ │   Downloaded tracing-core v0.1.36
+ │ │   Downloaded zerotrie v0.2.3
+ │ │   Downloaded memchr v2.7.6
+ │ │   Downloaded icu_collections v2.1.1
+ │ │   Downloaded hyper-util v0.1.19
+ │ │   Downloaded hashbrown v0.16.1
+ │ │   Downloaded hashbrown v0.14.5
+ │ │   Downloaded num-bigint v0.2.6
+ │ │   Downloaded mio v1.1.1
+ │ │   Downloaded librqbit-utp v0.6.3
+ │ │   Downloaded hashbrown v0.12.3
+ │ │   Downloaded http v1.4.0
+ │ │   Downloaded indexmap v2.13.0
+ │ │   Downloaded governor v0.10.4
+ │ │   Downloaded iri-string v0.7.10
+ │ │   Downloaded idna v1.1.0
+ │ │   Downloaded icu_properties_data v2.1.2
+ │ │   Downloaded hyper v1.8.1
+ │ │   Downloaded reqwest v0.12.28
+ │ │   Downloaded hashbrown v0.15.5
+ │ │   Downloaded hkdf v0.12.4
+ │ │   Downloaded itertools v0.14.0
+ │ │   Downloaded portable-atomic v1.13.0
+ │ │   Downloaded quick-xml v0.38.4
+ │ │   Downloaded vcpkg v0.2.15
+ │ │   Downloaded openssl v0.10.75
+ │ │   Downloaded nix v0.30.1
+ │ │   Downloaded libc v0.2.180
+ │ │   Downloaded linux-raw-sys v0.11.0
+ │ │ warning: rustix@1.1.3: ignoring 'hints.mostly-unused', pass `-Zprofile-hint-mostly-unused` to enable it
+ │ │ warning: rustix@1.1.3: ignoring 'hints.mostly-unused', pass `-Zprofile-hint-mostly-unused` to enable it
+ │ │    Compiling proc-macro2 v1.0.105
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=build_script_build CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-19
+ │ │ 49cf8c6b5b557f/proc-macro2-1.0.105 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.105/Cargo.tom
+ │ │ l CARGO_PKG_AUTHORS='David Tolnay <dtolnay@gmail.com>:Alex Crichton <alex@alexcrichton.com>' CARGO_PKG_DESCRIPTION='A substitute implementation of the 
+ │ │ compiler'\''s `proc_macro` API to decouple token-based libraries from the procedural macro use case.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR A
+ │ │ pache-2.0' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=proc-macro2 CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/proc-macro2
+ │ │ ' CARGO_PKG_RUST_VERSION=1.68 CARGO_PKG_VERSION=1.0.105 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=105 CARGO_PKG_VERSI
+ │ │ ON_PRE='' LD_LIBRARY_PATH='$SRC_DIR/target/release/deps:/etc/sane-libs' $BUILD_PREFIX/bin/rustc --crate-name build_script_build --edition=2021 $BUILD_P
+ │ │ REFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.105/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,f
+ │ │ uture-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"'
+ │ │  --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=c9585f589da57f8e -
+ │ │ C extra-filename=-bdd3f75c139929f4 --out-dir $SRC_DIR/target/release/build/proc-macro2-bdd3f75c139929f4 -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-
+ │ │ gnu-cc -C strip=debuginfo -L dependency=$SRC_DIR/target/release/deps --cap-lints warn`
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CFG_FEATURE=default,proc-macro CARGO_CFG_PANIC=unwind CARGO_CFG_TARGET_ABI='' CARGO_CFG_TARGET_ARCH=x
+ │ │ 86_64 CARGO_CFG_TARGET_ENDIAN=little CARGO_CFG_TARGET_ENV=gnu CARGO_CFG_TARGET_FAMILY=unix CARGO_CFG_TARGET_FEATURE=fxsr,sse,sse2 CARGO_CFG_TARGET_HAS_
+ │ │ ATOMIC=16,32,64,8,ptr CARGO_CFG_TARGET_OS=linux CARGO_CFG_TARGET_POINTER_WIDTH=64 CARGO_CFG_TARGET_VENDOR=unknown CARGO_CFG_UNIX='' CARGO_ENCODED_RUSTF
+ │ │ LAGS='' CARGO_FEATURE_DEFAULT=1 CARGO_FEATURE_PROC_MACRO=1 CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-m
+ │ │ acro2-1.0.105 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.105/Cargo.toml CARGO_PKG_AUTHORS='
+ │ │ David Tolnay <dtolnay@gmail.com>:Alex Crichton <alex@alexcrichton.com>' CARGO_PKG_DESCRIPTION='A substitute implementation of the compiler'\''s `proc_m
+ │ │ acro` API to decouple token-based libraries from the procedural macro use case.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARGO_PKG_
+ │ │ LICENSE_FILE='' CARGO_PKG_NAME=proc-macro2 CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/proc-macro2' CARGO_PKG_RUST_VERS
+ │ │ ION=1.68 CARGO_PKG_VERSION=1.0.105 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=105 CARGO_PKG_VERSION_PRE='' DEBUG=false
+ │ │  HOST=x86_64-unknown-linux-gnu LD_LIBRARY_PATH='$SRC_DIR/target/release:$SRC_DIR/target/release/deps:$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu
+ │ │ /lib:/etc/sane-libs' NUM_JOBS=1 OPT_LEVEL=0 OUT_DIR=$SRC_DIR/target/release/build/proc-macro2-d70aba42a9046957/out PROFILE=release RUSTC=$BUILD_PREFIX/
+ │ │ bin/rustc RUSTC_LINKER=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc RUSTDOC=$BUILD_PREFIX/bin/rustdoc TARGET=x86_64-unknown-linux-gnu $SRC_DIR/target/re
+ │ │ lease/build/proc-macro2-bdd3f75c139929f4/build-script-build`
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(fuzzing)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(no_is_available)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(no_literal_byte_character)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(no_literal_c_string)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(no_source_text)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(proc_macro_span)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(proc_macro_span_file)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(proc_macro_span_location)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(procmacro2_backtrace)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(procmacro2_build_probe)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(procmacro2_nightly_testing)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(procmacro2_semver_exempt)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(randomize_layout)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(span_locations)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(super_unstable)
+ │ │ [proc-macro2 1.0.105] cargo:rustc-check-cfg=cfg(wrap_proc_macro)
+ │ │ [proc-macro2 1.0.105] cargo:rerun-if-changed=src/probe/proc_macro_span.rs
+ │ │ [proc-macro2 1.0.105] cargo:rustc-cfg=wrap_proc_macro
+ │ │ [proc-macro2 1.0.105] cargo:rerun-if-changed=src/probe/proc_macro_span_location.rs
+ │ │ [proc-macro2 1.0.105] cargo:rerun-if-changed=src/probe/proc_macro_span_file.rs
+ │ │ [proc-macro2 1.0.105] cargo:rerun-if-env-changed=RUSTC_BOOTSTRAP
+ │ │    Compiling unicode-ident v1.0.22
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=unicode_ident CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8
+ │ │ c6b5b557f/unicode-ident-1.0.22 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.22/Cargo.toml C
+ │ │ ARGO_PKG_AUTHORS='David Tolnay <dtolnay@gmail.com>' CARGO_PKG_DESCRIPTION='Determine whether characters have the XID_Start or XID_Continue properties a
+ │ │ ccording to Unicode Standard Annex #31' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='(MIT OR Apache-2.0) AND Unicode-3.0' CARGO_PKG_LICENSE_FILE='' CARGO_P
+ │ │ KG_NAME=unicode-ident CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/unicode-ident' CARGO_PKG_RUST_VERSION=1.31 CARGO_PKG_
+ │ │ VERSION=1.0.22 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=22 CARGO_PKG_VERSION_PRE='' LD_LIBRARY_PATH='$SRC_DIR/target
+ │ │ /release/deps:/etc/sane-libs' $BUILD_PREFIX/bin/rustc --crate-name unicode_ident --edition=2018 $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949c
+ │ │ f8c6b5b557f/unicode-ident-1.0.22/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-i
+ │ │ nfo,metadata,link -C embed-bitcode=no -C debug-assertions=off --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=00dd380f4
+ │ │ 79de13c -C extra-filename=-8cf22c25f7a5e13b --out-dir $SRC_DIR/target/release/deps -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debug
+ │ │ info -L dependency=$SRC_DIR/target/release/deps --cap-lints warn`
+ │ │    Compiling quote v1.0.43
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=build_script_build CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-19
+ │ │ 49cf8c6b5b557f/quote-1.0.43 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/Cargo.toml CARGO_PKG_AU
+ │ │ THORS='David Tolnay <dtolnay@gmail.com>' CARGO_PKG_DESCRIPTION='Quasi-quoting macro quote'\!'(...)' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apa
+ │ │ che-2.0' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=quote CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/quote' CARGO_PKG_RU
+ │ │ ST_VERSION=1.68 CARGO_PKG_VERSION=1.0.43 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=43 CARGO_PKG_VERSION_PRE='' LD_LIB
+ │ │ RARY_PATH='$SRC_DIR/target/release/deps:/etc/sane-libs' $BUILD_PREFIX/bin/rustc --crate-name build_script_build --edition=2021 $BUILD_PREFIX/.cargo/reg
+ │ │ istry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-
+ │ │ type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsr
+ │ │ s,test)' --check-cfg 'cfg(feature, values("default", "proc-macro"))' -C metadata=fccfa0b732c12ddf -C extra-filename=-a6bbf43d91536c82 --out-dir $SRC_DI
+ │ │ R/target/release/build/quote-a6bbf43d91536c82 -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debuginfo -L dependency=$SRC_DIR/target/re
+ │ │ lease/deps --cap-lints warn`
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CFG_FEATURE=default,proc-macro CARGO_CFG_PANIC=unwind CARGO_CFG_TARGET_ABI='' CARGO_CFG_TARGET_ARCH=x
+ │ │ 86_64 CARGO_CFG_TARGET_ENDIAN=little CARGO_CFG_TARGET_ENV=gnu CARGO_CFG_TARGET_FAMILY=unix CARGO_CFG_TARGET_FEATURE=fxsr,sse,sse2 CARGO_CFG_TARGET_HAS_
+ │ │ ATOMIC=16,32,64,8,ptr CARGO_CFG_TARGET_OS=linux CARGO_CFG_TARGET_POINTER_WIDTH=64 CARGO_CFG_TARGET_VENDOR=unknown CARGO_CFG_UNIX='' CARGO_ENCODED_RUSTF
+ │ │ LAGS='' CARGO_FEATURE_DEFAULT=1 CARGO_FEATURE_PROC_MACRO=1 CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-
+ │ │ 1.0.43 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/Cargo.toml CARGO_PKG_AUTHORS='David Tolnay <
+ │ │ dtolnay@gmail.com>' CARGO_PKG_DESCRIPTION='Quasi-quoting macro quote'\!'(...)' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARGO_PKG_LI
+ │ │ CENSE_FILE='' CARGO_PKG_NAME=quote CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/quote' CARGO_PKG_RUST_VERSION=1.68 CARGO
+ │ │ _PKG_VERSION=1.0.43 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=43 CARGO_PKG_VERSION_PRE='' DEBUG=false HOST=x86_64-unk
+ │ │ nown-linux-gnu LD_LIBRARY_PATH='$SRC_DIR/target/release:$SRC_DIR/target/release/deps:$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu/lib:/etc/sane-l
+ │ │ ibs' NUM_JOBS=1 OPT_LEVEL=0 OUT_DIR=$SRC_DIR/target/release/build/quote-1ebfe42321af3412/out PROFILE=release RUSTC=$BUILD_PREFIX/bin/rustc RUSTC_LINKER
+ │ │ =$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc RUSTDOC=$BUILD_PREFIX/bin/rustdoc TARGET=x86_64-unknown-linux-gnu $SRC_DIR/target/release/build/quote-a6bb
+ │ │ f43d91536c82/build-script-build`
+ │ │ [quote 1.0.43] cargo:rerun-if-changed=build.rs
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=proc_macro2 CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6
+ │ │ b5b557f/proc-macro2-1.0.105 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.105/Cargo.toml CARGO
+ │ │ _PKG_AUTHORS='David Tolnay <dtolnay@gmail.com>:Alex Crichton <alex@alexcrichton.com>' CARGO_PKG_DESCRIPTION='A substitute implementation of the compile
+ │ │ r'\''s `proc_macro` API to decouple token-based libraries from the procedural macro use case.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2
+ │ │ .0' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=proc-macro2 CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/proc-macro2' CARGO
+ │ │ _PKG_RUST_VERSION=1.68 CARGO_PKG_VERSION=1.0.105 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=105 CARGO_PKG_VERSION_PRE=
+ │ │ '' LD_LIBRARY_PATH='$SRC_DIR/target/release/deps:/etc/sane-libs' OUT_DIR=$SRC_DIR/target/release/build/proc-macro2-d70aba42a9046957/out $BUILD_PREFIX/b
+ │ │ in/rustc --crate-name proc_macro2 --edition=2021 $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.105/src/lib.rs --er
+ │ │ ror-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-a
+ │ │ ssertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightl
+ │ │ y", "proc-macro", "span-locations"))' -C metadata=226a51b4db4c9ed8 -C extra-filename=-3230b7745566e92d --out-dir $SRC_DIR/target/release/deps -C linker
+ │ │ =$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debuginfo -L dependency=$SRC_DIR/target/release/deps --extern unicode_ident=$SRC_DIR/target/relea
+ │ │ se/deps/libunicode_ident-8cf22c25f7a5e13b.rmeta --cap-lints warn --cfg wrap_proc_macro --check-cfg 'cfg(fuzzing)' --check-cfg 'cfg(no_is_available)' --
+ │ │ check-cfg 'cfg(no_literal_byte_character)' --check-cfg 'cfg(no_literal_c_string)' --check-cfg 'cfg(no_source_text)' --check-cfg 'cfg(proc_macro_span)' 
+ │ │ --check-cfg 'cfg(proc_macro_span_file)' --check-cfg 'cfg(proc_macro_span_location)' --check-cfg 'cfg(procmacro2_backtrace)' --check-cfg 'cfg(procmacro2
+ │ │ _build_probe)' --check-cfg 'cfg(procmacro2_nightly_testing)' --check-cfg 'cfg(procmacro2_semver_exempt)' --check-cfg 'cfg(randomize_layout)' --check-cf
+ │ │ g 'cfg(span_locations)' --check-cfg 'cfg(super_unstable)' --check-cfg 'cfg(wrap_proc_macro)'`
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=quote CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557
+ │ │ f/quote-1.0.43 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/Cargo.toml CARGO_PKG_AUTHORS='David 
+ │ │ Tolnay <dtolnay@gmail.com>' CARGO_PKG_DESCRIPTION='Quasi-quoting macro quote'\!'(...)' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARG
+ │ │ O_PKG_LICENSE_FILE='' CARGO_PKG_NAME=quote CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/quote' CARGO_PKG_RUST_VERSION=1.
+ │ │ 68 CARGO_PKG_VERSION=1.0.43 CARGO_PKG_VERSION_MAJOR=1 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=43 CARGO_PKG_VERSION_PRE='' LD_LIBRARY_PATH='$S
+ │ │ RC_DIR/target/release/deps:/etc/sane-libs' OUT_DIR=$SRC_DIR/target/release/build/quote-1ebfe42321af3412/out $BUILD_PREFIX/bin/rustc --crate-name quote 
+ │ │ --edition=2021 $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/src/lib.rs --error-format=json --json=diagnostic-rendere
+ │ │ d-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' -
+ │ │ -cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "proc-macro"))' -C metadata=4d46e31209529d3d -C 
+ │ │ extra-filename=-0155b377477aa12c --out-dir $SRC_DIR/target/release/deps -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debuginfo -L dep
+ │ │ endency=$SRC_DIR/target/release/deps --extern proc_macro2=$SRC_DIR/target/release/deps/libproc_macro2-3230b7745566e92d.rmeta --cap-lints warn`
+ │ │ warning: unexpected `cfg` condition name: `no_diagnostic_namespace`
+ │ │   --> $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.43/src/runtime.rs:55:9
+ │ │    |
+ │ │ 55 |     not(no_diagnostic_namespace),
+ │ │    |         ^^^^^^^^^^^^^^^^^^^^^^^
+ │ │    |
+ │ │    = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+ │ │    = help: consider using a Cargo feature instead
+ │ │    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+ │ │             [lints.rust]
+ │ │             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(no_diagnostic_namespace)'] }
+ │ │    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(no_diagnostic_namespace)");` to the top of the `build.rs`
+ │ │    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+ │ │    = note: `#[warn(unexpected_cfgs)]` on by default
+ │ │ warning: `quote` (lib) generated 1 warning
+ │ │    Compiling syn v2.0.114
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=syn CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/
+ │ │ syn-2.0.114 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/syn-2.0.114/Cargo.toml CARGO_PKG_AUTHORS='David Toln
+ │ │ ay <dtolnay@gmail.com>' CARGO_PKG_DESCRIPTION='Parser for Rust source code' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARGO_PKG_LICEN
+ │ │ SE_FILE='' CARGO_PKG_NAME=syn CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/dtolnay/syn' CARGO_PKG_RUST_VERSION=1.68 CARGO_PKG_VE
+ │ │ RSION=2.0.114 CARGO_PKG_VERSION_MAJOR=2 CARGO_PKG_VERSION_MINOR=0 CARGO_PKG_VERSION_PATCH=114 CARGO_PKG_VERSION_PRE='' LD_LIBRARY_PATH='$SRC_DIR/target
+ │ │ /release/deps:/etc/sane-libs' $BUILD_PREFIX/bin/rustc --crate-name syn --edition=2021 $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557
+ │ │ f/syn-2.0.114/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -
+ │ │ C embed-bitcode=no -C debug-assertions=off --cfg 'feature="clone-impls"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="extra-trait
+ │ │ s"' --cfg 'feature="fold"' --cfg 'feature="full"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --cfg 'feature="vis
+ │ │ it"' --cfg 'feature="visit-mut"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("clone-impls", "default", "derive", "extra-traits", "f
+ │ │ old", "full", "parsing", "printing", "proc-macro", "test", "visit", "visit-mut"))' -C metadata=0e9980f651eeeaaa -C extra-filename=-a8bfbc187f23bf14 --o
+ │ │ ut-dir $SRC_DIR/target/release/deps -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debuginfo -L dependency=$SRC_DIR/target/release/deps
+ │ │  --extern proc_macro2=$SRC_DIR/target/release/deps/libproc_macro2-3230b7745566e92d.rmeta --extern quote=$SRC_DIR/target/release/deps/libquote-0155b3774
+ │ │ 77aa12c.rmeta --extern unicode_ident=$SRC_DIR/target/release/deps/libunicode_ident-8cf22c25f7a5e13b.rmeta --cap-lints warn`
+ │ │    Compiling libc v0.2.180
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CRATE_NAME=build_script_build CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-19
+ │ │ 49cf8c6b5b557f/libc-0.2.180 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/Cargo.toml CARGO_PKG_AU
+ │ │ THORS='The Rust Project Developers' CARGO_PKG_DESCRIPTION='Raw FFI bindings to platform libraries like libc.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='
+ │ │ MIT OR Apache-2.0' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=libc CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/rust-lang/libc' CA
+ │ │ RGO_PKG_RUST_VERSION=1.63 CARGO_PKG_VERSION=0.2.180 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=2 CARGO_PKG_VERSION_PATCH=180 CARGO_PKG_VERSION_P
+ │ │ RE='' LD_LIBRARY_PATH='$SRC_DIR/target/release/deps:/etc/sane-libs' $BUILD_PREFIX/bin/rustc --crate-name build_script_build --edition=2021 $BUILD_PREFI
+ │ │ X/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incom
+ │ │ pat --crate-type bin --emit=dep-info,link -C embed-bitcode=no '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::u
+ │ │ nnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minim
+ │ │ al_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy
+ │ │ ::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="extra_traits"' --cfg 
+ │ │ 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-st
+ │ │ d", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=a68f038fc30d1ea4 -C extra-filename=-37415bdeb09e56d6 --out-dir $SRC_DIR/target/release/
+ │ │ build/libc-37415bdeb09e56d6 -C linker=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc -C strip=debuginfo -L dependency=$SRC_DIR/target/release/deps --cap-l
+ │ │ ints warn`
+ │ │      Running `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CFG_FEATURE=default,extra_traits,std CARGO_CFG_PANIC=unwind CARGO_CFG_TARGET_ABI='' CARGO_CFG_TARGET_
+ │ │ ARCH=x86_64 CARGO_CFG_TARGET_ENDIAN=little CARGO_CFG_TARGET_ENV=gnu CARGO_CFG_TARGET_FAMILY=unix CARGO_CFG_TARGET_FEATURE=fxsr,sse,sse2 CARGO_CFG_TARGE
+ │ │ T_HAS_ATOMIC=16,32,64,8,ptr CARGO_CFG_TARGET_OS=linux CARGO_CFG_TARGET_POINTER_WIDTH=64 CARGO_CFG_TARGET_VENDOR=unknown CARGO_CFG_UNIX='' CARGO_ENCODED
+ │ │ _RUSTFLAGS='-Clink-arg=-Wl,-rpath-link,$PREFIX/lib-Clink-arg=-Wl,-rpath,$PREFIX/lib' CARGO_FEATURE_DEFAULT=1 CARGO_FEATURE_EXTRA_TRAITS=1 CARGO_FEATURE
+ │ │ _STD=1 CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180 CARGO_MANIFEST_PATH=$BUILD_PREFIX/.cargo/regi
+ │ │ stry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/Cargo.toml CARGO_PKG_AUTHORS='The Rust Project Developers' CARGO_PKG_DESCRIPTION='Raw FFI bindin
+ │ │ gs to platform libraries like libc.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=libc CARGO_PK
+ │ │ G_README=README.md CARGO_PKG_REPOSITORY='https://github.com/rust-lang/libc' CARGO_PKG_RUST_VERSION=1.63 CARGO_PKG_VERSION=0.2.180 CARGO_PKG_VERSION_MAJ
+ │ │ OR=0 CARGO_PKG_VERSION_MINOR=2 CARGO_PKG_VERSION_PATCH=180 CARGO_PKG_VERSION_PRE='' DEBUG=false HOST=x86_64-unknown-linux-gnu LD_LIBRARY_PATH='$SRC_DIR
+ │ │ /target/release:$SRC_DIR/target/release/deps:$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu/lib:/etc/sane-libs' NUM_JOBS=1 OPT_LEVEL=3 OUT_DIR=$SRC
+ │ │ _DIR/target/x86_64-unknown-linux-gnu/release/build/libc-6b8f881543dd4306/out PROFILE=release RUSTC=$BUILD_PREFIX/bin/rustc RUSTC_LINKER=$BUILD_PREFIX/b
+ │ │ in/x86_64-conda-linux-gnu-cc RUSTDOC=$BUILD_PREFIX/bin/rustdoc TARGET=x86_64-unknown-linux-gnu $SRC_DIR/target/release/build/libc-37415bdeb09e56d6/buil
+ │ │ d-script-build`
+ │ │ [libc 0.2.180] cargo:rerun-if-changed=build.rs
+ │ │ [libc 0.2.180] 
+ │ │ [libc 0.2.180] thread 'main' (1096078) panicked at $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/build.rs:211:5:
+ │ │ [libc 0.2.180] failed to run rustc: $BUILD_PREFIX/bin/rustc: error while loading shared libraries: libz.so.1: cannot open shared object file: No such f
+ │ │ ile or directory
+ │ │ [libc 0.2.180] 
+ │ │ [libc 0.2.180] note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ │ │ error: failed to run custom build command for `libc v0.2.180`
+ │ │ Caused by:
+ │ │   process didn't exit successfully: `CARGO=$BUILD_PREFIX/bin/cargo CARGO_CFG_FEATURE=default,extra_traits,std CARGO_CFG_PANIC=unwind CARGO_CFG_TARGET_A
+ │ │ BI='' CARGO_CFG_TARGET_ARCH=x86_64 CARGO_CFG_TARGET_ENDIAN=little CARGO_CFG_TARGET_ENV=gnu CARGO_CFG_TARGET_FAMILY=unix CARGO_CFG_TARGET_FEATURE=fxsr,s
+ │ │ se,sse2 CARGO_CFG_TARGET_HAS_ATOMIC=16,32,64,8,ptr CARGO_CFG_TARGET_OS=linux CARGO_CFG_TARGET_POINTER_WIDTH=64 CARGO_CFG_TARGET_VENDOR=unknown CARGO_CF
+ │ │ G_UNIX='' CARGO_ENCODED_RUSTFLAGS='-Clink-arg=-Wl,-rpath-link,$PREFIX/lib-Clink-arg=-Wl,-rpath,$PREFIX/lib' CARGO_FEATURE_DEFAULT=1 CARGO_FEATURE_EXTRA
+ │ │ _TRAITS=1 CARGO_FEATURE_STD=1 CARGO_MANIFEST_DIR=$BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180 CARGO_MANIFEST_PATH=$B
+ │ │ UILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/Cargo.toml CARGO_PKG_AUTHORS='The Rust Project Developers' CARGO_PKG_DESC
+ │ │ RIPTION='Raw FFI bindings to platform libraries like libc.' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='MIT OR Apache-2.0' CARGO_PKG_LICENSE_FILE='' CARGO
+ │ │ _PKG_NAME=libc CARGO_PKG_README=README.md CARGO_PKG_REPOSITORY='https://github.com/rust-lang/libc' CARGO_PKG_RUST_VERSION=1.63 CARGO_PKG_VERSION=0.2.18
+ │ │ 0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=2 CARGO_PKG_VERSION_PATCH=180 CARGO_PKG_VERSION_PRE='' DEBUG=false HOST=x86_64-unknown-linux-gnu LD
+ │ │ _LIBRARY_PATH='$SRC_DIR/target/release:$SRC_DIR/target/release/deps:$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu/lib:/etc/sane-libs' NUM_JOBS=1 O
+ │ │ PT_LEVEL=3 OUT_DIR=$SRC_DIR/target/x86_64-unknown-linux-gnu/release/build/libc-6b8f881543dd4306/out PROFILE=release RUSTC=$BUILD_PREFIX/bin/rustc RUSTC
+ │ │ _LINKER=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc RUSTDOC=$BUILD_PREFIX/bin/rustdoc TARGET=x86_64-unknown-linux-gnu $SRC_DIR/target/release/build/lib
+ │ │ c-37415bdeb09e56d6/build-script-build` (exit status: 101)
+ │ │   --- stdout
+ │ │   cargo:rerun-if-changed=build.rs
+ │ │   --- stderr
+ │ │   thread 'main' (1096078) panicked at $BUILD_PREFIX/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.180/build.rs:211:5:
+ │ │   failed to run rustc: $BUILD_PREFIX/bin/rustc: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or direct
+ │ │ ory
+ │ │   note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ │ │ error: failed to compile `rqbit v9.0.0-beta.2 ($SRC_DIR/crates/rqbit)`, intermediate artifacts can be found at `$SRC_DIR/target`.
+ │ │ To reuse those artifacts with a future compilation, set the environment variable `CARGO_BUILD_BUILD_DIR` to that path.
+ │ │ × error Script failed with status 101
+ │ │ × error 
+ │ │ × error Script execution failed.
+ │ │ × error 
+ │ │ × error   Work directory: /home/user/src/milahu/conda-recipes/output/bld/rattler-build_rqbit_1780249379/work
+ │ │ × error   Prefix: /home/user/src/milahu/conda-recipes/output/bld/rattler-build_rqbit_1780249379/host_env_placehold_placehold_placehold_placehold_placeho
+ │ │ × error ld_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ × error   Build prefix: /home/user/src/milahu/conda-recipes/output/bld/rattler-build_rqbit_1780249379/build_env
+ │ │ × error 
+ │ │ × error To run the script manually, use the following command:
+ │ │ × error 
+ │ │ × error   cd "/home/user/src/milahu/conda-recipes/output/bld/rattler-build_rqbit_1780249379/work" && ./conda_build.sh
+ │ │ × error 
+ │ │ × error To run commands interactively in the build environment:
+ │ │ × error 
+ │ │ × error   cd "/home/user/src/milahu/conda-recipes/output/bld/rattler-build_rqbit_1780249379/work" && source build_env.sh
+ │ │
+ │ ╰─────────────────── (took 15 seconds)
+ │
+ ╰─────────────────── (took 17 seconds)
+Error:   × Script failed to execute
+

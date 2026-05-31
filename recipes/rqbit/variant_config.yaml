@@ -1,0 +1,18 @@
+# https://rattler-build.prefix.dev/dev/variants/
+# https://rattler-build.prefix.dev/latest/variants/
+# https://github.com/prefix-dev/pixi/issues/5272
+# https://rattler-build.prefix.dev/dev/reference/jinja/#the-stdlib-function
+
+# c_stdlib:
+#   - if: linux
+#     then: sysroot
+#   - if: osx
+#     then: macosx_deployment_target
+#   - if: win
+#     then: vs
+
+c_stdlib:
+  - sysroot
+
+c_compiler:
+  - gcc

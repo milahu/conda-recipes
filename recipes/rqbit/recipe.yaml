@@ -1,0 +1,119 @@
+# based on
+# https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/rq/rqbit/package.nix
+# https://conda-forge.org/docs/maintainer/example_recipes/rust/
+
+context:
+  version: "9.0.0-beta.2"
+  sha256: "45a2d4b5ffe8dfd0231d7417fff8b77d604e8412a858b6ee8b53cef25bdbcf9b"
+
+package:
+  name: rqbit
+  # fix: invalid value for `version`: `version cannot contain `-``.
+  version: ${{ version | replace("-", "_") }}
+
+source:
+  url: https://github.com/ikatson/rqbit/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: ${{ sha256 }}
+
+build:
+  number: 0
+  script:
+    # env:
+    #   CARGO_PROFILE_RELEASE_STRIP: symbols
+    #   CARGO_PROFILE_RELEASE_LTO: fat
+
+    content:
+
+      # fix: stdout and stderr of build script are not correctly interleaved
+      # https://github.com/prefix-dev/rattler-build/issues/2511
+      # - {"if":"win","then":"","else":"exec 2>&1"}
+      - {"if":"unix","then":"exec 2>&1"}
+
+      # trace commands
+      - {"if":"win","then":"echo on","else":"set -x"}
+
+      - if: unix
+        then:
+          # debug: failed to run rustc: $BUILD_PREFIX/bin/rustc: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory
+          - |
+            which rustc
+
+            rustc --version
+            $BUILD_PREFIX/bin/rustc --version
+
+            ldd $BUILD_PREFIX/bin/rustc | grep libz
+            ldd $BUILD_PREFIX/bin/../lib/../lib/../lib/libz.so.1
+
+            set +x
+            find $BUILD_PREFIX -name '*.so' | while read so; do
+              m="$(ldd "$so" 2>/dev/null | grep libz || true)"
+              [ -z "$m" ] && continue
+              echo "$so"; echo "$m"; echo
+            done
+            set -x
+
+            echo "PATH=$PATH"
+            echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+            echo "RUSTC=$RUSTC"
+            echo "CARGO_HOME=$CARGO_HOME"
+
+            echo rustc: rpath via readelf
+            readelf -d $BUILD_PREFIX/bin/rustc | grep -E 'RPATH|RUNPATH'
+
+            echo rustc: rpath via patchelf
+            patchelf --print-rpath $BUILD_PREFIX/bin/rustc
+
+            echo rust_lib_path=$BUILD_PREFIX/lib/rustlib/x86_64-unknown-linux-gnu/lib | sed 's|/|___|g'
+            echo main_lib_path=$BUILD_PREFIX/lib | sed 's|/|___|g'
+
+            # exit 1
+
+          # fix: failed to run rustc: $BUILD_PREFIX/bin/rustc: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory
+          - export LD_LIBRARY_PATH="$BUILD_PREFIX/lib:$LD_LIBRARY_PATH"
+
+          # no effect
+          # https://github.com/conda-forge/rust-feedstock/issues/71
+          # - export RUSTFLAGS="-C link-arg=-Wl,-rpath-link,$CONDA_PREFIX/lib -C link-arg=-Wl,-rpath,$CONDA_PREFIX/lib -L$CONDA_PREFIX/lib"
+
+          # no effect
+          # https://github.com/conda-forge/rust-feedstock/issues/76
+          # - export RUSTFLAGS="-L native=$CONDA_BUILD_SYSROOT/usr/lib64 -L native=$CONDA_BUILD_SYSROOT/lib64"
+
+          - cargo auditable install --locked --no-track --bins --root ${{ PREFIX }} --path crates/rqbit -vv --jobs 1 # debug
+          # - cargo auditable install --locked --no-track --bins --root ${{ PREFIX }} --path crates/rqbit
+        else:
+          - cargo auditable install --locked --no-track --bins --root %LIBRARY_PREFIX% --path crates/rqbit
+      - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
+
+requirements:
+  build:
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+    - cargo-auditable
+    # TODO remove?
+    - openssl
+    - zlib
+
+  host:
+    - openssl
+    - zlib
+
+  run:
+    - openssl
+    - zlib
+
+tests:
+  - script:
+    - rqbit --version
+
+about:
+  homepage: https://github.com/ikatson/rqbit
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: "A bittorrent client in Rust"
+
+extra:
+  recipe-maintainers:
+    - milahu
